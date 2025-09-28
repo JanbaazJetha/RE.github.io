@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// If user is not logged in, redirect to login page
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="eng">
 <head>
@@ -18,7 +28,7 @@
         }
 
         body {
-            background: #000000;
+            background: black;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
@@ -33,18 +43,18 @@
            Main Container
         ------------------------------ */
         .container {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(130, 83, 83, 0.1);
-            border-radius: 20px;
-            padding: 60px 80px;
-            text-align: center ;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 20px 40px rgba(228, 11, 11, 0.833);
-            position: relative;
-            max-width: 900px;
-            width: 90%;
-            transition: all 0.3s ease;
-        }
+         background: rgba(255, 255, 255, 0.05);
+         border: 1px solid rgba(130, 83, 83, 0.1);
+         border-radius: 20px;
+         padding: 60px 80px;
+         text-align: center ;
+         backdrop-filter: blur(20px);
+          box-shadow: 0 20px 40px rgba(0, 255, 255, 0.6);  /* Changed from: rgba(228, 11, 11, 0.833) */
+         position: relative;
+         max-width: 900px;
+         width: 90%;
+         transition: all 0.3s ease;
+}
 
         /* ------------------------------
            Window Controls (Dots)
@@ -337,13 +347,12 @@
             color: #1a1a1a;
         }
 
-        body.light-theme .container {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            color: #1a1a1a;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-        }
-
+      body.light-theme .container {
+          background: rgba(255, 255, 255, 0.9);
+         border: 1px solid rgba(0, 0, 0, 0.1);
+          color: #1a1a1a;
+         box-shadow: 0 20px 40px rgba(0, 255, 255, 0.6);  /* Keep cyan shadow instead of black */
+}
         body.light-theme h1 {
             color: #1a1a1a;
             text-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -828,7 +837,7 @@
             <div class="control dot3"></div>
         </div>
 
-        <h1>Jaydeepsinh</h1>
+        <h1>RE</h1>
         <p class="subtitle">developer and writer</p>
 
         <!-- Navigation -->
@@ -1040,4 +1049,3 @@
     </script>
 </body>
 </html>
-
